@@ -20,10 +20,10 @@ export const useLocationHistory = () => {
 
 	const addLocation = (details: PostcodeDetails) => {
 		setHistory((prev) => {
-			let value = [details, ...prev];
+			let value = [...prev, details];
 
 			if (prev.length >= 3) {
-				value = [details, ...prev.slice(1)];
+				value = [...prev.slice(1), details];
 			}
 
 			localStorage.setItem(STORAGE_KEY, JSON.stringify(value));
